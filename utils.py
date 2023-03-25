@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
+from info import AUTH_CHANNEL, LONG_DROPLINK_URL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTENER_API
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -13,6 +13,7 @@ from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
+import shortzy
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -358,3 +359,11 @@ def humanbytes(size):
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
 
 
+shortz = shortzy.Shortzy(SHORTENER_API, "Afly.in")
+async def get_shortlink(link):
+    if SHORTENER_API:
+        if LONG_DROPLINK_URL == "True" or LONG_DROPLINK_URL is True:
+            return await shortz.get_quick_link(link)
+        else:
+            return await shortz.convert(link, silently_fail=False)
+    return link
