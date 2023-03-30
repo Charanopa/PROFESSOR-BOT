@@ -319,10 +319,3 @@ Delete A Lot Of Messages From Groups!
 
 ➤ 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐚𝐧𝐝 𝐔𝐬𝐚𝐠𝐞:
 • /share - 𝚁𝚎𝚙𝚕𝚢 𝚆𝚒𝚝𝚑 𝙰𝚗𝚢 𝚃𝚎𝚡𝚝 𝚃𝚘 𝚂𝚎𝚗𝚍 𝚃𝚑𝚒𝚜 𝙲𝚘𝚖𝚖𝚊𝚗𝚍 """
-
-CUSTOM_FILE_CAPTION = """
-<b>🏷️ Tɪᴛʟᴇ :- <code>{}</code>
-⚙️ Sɪᴢᴇ :- {}
-🕵️‍♂️ Rᴇǫᴜᴇsᴛᴇᴅ Bʏ :- {}
-🔅 Pᴏᴡᴇʀᴇᴅ Bʏ :- {}
-<a href='https://t.me/Movie_Megaverse_Backup'</a></b>"""
