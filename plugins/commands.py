@@ -70,7 +70,7 @@ async def start(client, message):
             ],[
                 InlineKeyboardButton(" Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")]
             ]
-        ]
+        
 
         if message.command[1] != "subscribe":
             try:
