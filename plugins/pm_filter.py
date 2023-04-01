@@ -510,11 +510,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
-        if query.data.startswith("pmfile"):
-               ident, file_id = query.data.split("#")
-               files_ = await get_file_details(file_id)
-               if not files_:
-                   return await query.answer('No such file exist.')
+    if query.data.startswith("pmfile"):
+        ident, file_id = query.data.split("#")
+        files_ = await get_file_details(file_id)
+        if not files_:
+            return await query.answer('No such file exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -541,11 +541,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
         
-         if query.data.startswith("file"):        
-              ident, req, file_id = query.data.split("#")
-              if BUTTON_LOCK:
-                   if int(req) not in [query.from_user.id, 0]:
-                    return await query.answer(BUTTON_LOCK_TEXT.format(query=query.from_user.first_name), show_alert=True)             
+    if query.data.startswith("file"):        
+        ident, req, file_id = query.data.split("#")
+        if BUTTON_LOCK:
+            if int(req) not in [query.from_user.id, 0]:
+                return await query.answer(BUTTON_LOCK_TEXT.format(query=query.from_user.first_name), show_alert=True)             
         files_ = await get_file_details(file_id)
         if not files_:
             return await query.answer('No such file exist.')
@@ -562,8 +562,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
-            
-            try:
+
+        try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
@@ -584,7 +584,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-     
     elif query.data == "removebg":
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",
