@@ -55,7 +55,7 @@ async def fil_mod(client, message):
           await m.edit("𝚄𝚂𝙴 :- /autofilter on 𝙾𝚁 /autofilter off")
 
 
-@Client.on_message(filters.command('g_filter') & filters.group & admin_fliter)
+@Client.on_message(filters.command('g_filter') & admin_fliter)
 async def g_fil_mod(client, message): 
       mode_on = ["yes", "on", "true"]
       mode_of = ["no", "off", "false"]
@@ -78,7 +78,7 @@ async def g_fil_mod(client, message):
           await m.edit("𝚄𝚂𝙴 :- /g_filter on 𝙾𝚁 /g_filter off")
 
 
-@Client.on_message(filters.private & filters.group & filters.text & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.incoming & filters.group)
+@Client.on_message(filters.private & filters.text & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.incoming & filters.group)
 async def give_filter(client, message):
     if G_FILTER:
         if G_MODE.get(str(message.chat.id)) == "False":
