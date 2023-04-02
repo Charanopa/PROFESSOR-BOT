@@ -1242,7 +1242,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
 
-      async def auto_filter(client, msg, spoll=False):
+async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
@@ -1301,7 +1301,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton(text="🌹 𝗣𝗮𝗴𝗲 1/1", callback_data="pages")]
         )
     btn.insert(0, [
-        InlineKeyboardButton('🙏 Subscribe my Telegram Channel 🙏', url='https://t.me/FILMY_PITARA')
+        InlineKeyboardButton('🙏 Subscribe my Telegram Channel 🙏', url='https://t.me/Movie_Megaverse_Backup')
     ])
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -1354,7 +1354,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if spoll:
         await msg.message.delete()
 
-      async def manual_filters(client, message, text=False):
+async def manual_filters(client, message, text=False):
     group_id = message.chat.id
     name = text or message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.message_id
