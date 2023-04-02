@@ -215,9 +215,7 @@ async def pm_next_page(bot, query):
         pass
     await query.answer()
 
-
 @Client.on_callback_query(filters.regex(r"^next"))
-async@Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
@@ -295,7 +293,6 @@ async def next_page(bot, query):
         pass
     await query.answer()
 
-
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
@@ -318,7 +315,6 @@ async def advantage_spoll_choker(bot, query):
             k = await query.message.edit('This Movie Not Found In DataBase If You Want This Movie Join Our Request Group And Request - https://t.me/Hindi_Movie_Group_1')
             await asyncio.sleep(10)
             await k.delete()
-
 
 @Client.on_callback_query(filters.regex(r"^pmspolling"))
 async def pm_spoll_tester(bot, query):
