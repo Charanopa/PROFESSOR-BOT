@@ -1413,6 +1413,11 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
     else:
         btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")),
               InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}"))] for file in files ]             
+    btn.insert(0,
+        [ 
+	    InlineKeyboardButton(text="Movie Channel", url='https://telegram.me/LazyDeveloper'),
+        ] 
+    )
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         PM_BUTTONS[key] = search
