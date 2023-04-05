@@ -32,6 +32,12 @@ PM_SPELL_CHECK = {}
 FILTER_MODE = {}
 G_MODE = {}
 
+@Client.on_message(filters.group & filters.text & filters.incoming)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
 @Client.on_message(filters.command('autofilter'))
 async def fil_mod(client, message): 
       mode_on = ["yes", "on", "true"]
